@@ -30,4 +30,5 @@ const styles = {
   },
 };
 
-export default Card;
+// same as export { Card: Card }
+export { Card };

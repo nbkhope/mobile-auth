@@ -39,4 +39,5 @@ const styles = {
   },
 };
 
-export default Button;
+// You have to export like this in order for * in index.js to work
+export { Button };
