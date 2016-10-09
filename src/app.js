@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import firebase from 'firebase';
 
-import { Header } from './components/common';
+import { Header, Button, Spinner } from './components/common';
 import LoginForm from './components/LoginForm';
 
 class App extends Component {
   state = {
-    loggedIn: false,
+    loggedIn: null,
   };
 
   componentWillMount() {
@@ -31,12 +31,32 @@ class App extends Component {
     });
   }
 
+  renderContent() {
+    switch (this.state.loggedIn) {
+      // user is determined to be signed in
+      case true:
+        return (
+          <Button onPress={() => firebase.auth().signOut()}>
+            Logout
+          </Button>
+        );
+
+      // user is logged out
+      case false:
+        return <LoginForm />;
+
+      // we don't yet know whether the user is logged in/out
+      default: // for null
+        return <Spinner size="large" />;
+    }
+  }
+
   render() {
     return (
       <View>
         <Header title="Mobile Auth" />
         <Text>Welcome!</Text>
-        <LoginForm />
+        {this.renderContent()}
       </View>
     );
   }
