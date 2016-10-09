@@ -55,7 +55,6 @@ class App extends Component {
     return (
       <View>
         <Header title="Mobile Auth" />
-        <Text>Welcome!</Text>
         {this.renderContent()}
       </View>
     );
