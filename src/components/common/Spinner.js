@@ -3,7 +3,7 @@ import { View, ActivityIndicator } from 'react-native';
 
 const Spinner = ({ size }) => {
   return (
-    <View>
+    <View style={styles.spinnerStyle}>
       <ActivityIndicator size={size || 'large'} />
     </View>
   );
