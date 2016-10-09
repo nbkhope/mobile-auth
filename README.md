@@ -1,6 +1,7 @@
 # Mobile Auth
 
 ![Login](screenshots/login.png)
+~~~
 ![Logout](screenshots/logout.png)
 
 ## Installation
